@@ -36,7 +36,8 @@ session_start ();
 	<div class="container">
 		<div class="row">
 			<h2>Log In</h2>
-			<div class="login">	
+			<div class="login">
+			<img class="text-center" alt="logo" src="assets/img/treemas.png" height="60"><br><br><br>	
 				 <form action="admin/cek_login.php" class="inner-login" method="post">
 					<div class="form-group">
 						<input type="text" name="username" class="form-control" placeholder="Username" required autofocus />
@@ -48,8 +49,9 @@ session_start ();
 						<input type="submit" name="submit" class="btn btn-primary btn-block" value="LOGIN" />
 					</div>
 				</form>
+				Copyright &copy; 2015 PT. Treemas Solusi Utama
 			</div>
-			Copyright &copy; 2015 Agus Cahyadi
+			
 		</div>
 	</div>
 

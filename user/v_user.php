@@ -10,7 +10,7 @@ if ($_SESSION['username']=='') {
 }else{
 
   $user = $_SESSION["username"];
-  $id = $_SESSION["id"];  
+  $id_user = $_SESSION["id"];  
   $level = $_SESSION["level"];
 
   include '../home/header.php'; 

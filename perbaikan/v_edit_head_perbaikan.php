@@ -38,7 +38,7 @@ if ($_SESSION['username']=='') {
                while($d = mysqli_fetch_array($data)){
                  ?>
 
-                 <form method="post" action="action_edit_programmer_perbaikan.php"> <!-- update.php -->
+                 <form method="post" action="action_edit_head_perbaikan.php"> <!-- update.php -->
                    <!-- <div class="form-group">
                      <label for="id">Id</label>
                      <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
@@ -58,11 +58,34 @@ if ($_SESSION['username']=='') {
                    <div class="form-group">
                      <label for="id_issue">Issue</label>
                      <input type="text" name="id_issue" class="form-control" id="issue" value="<?php echo $d['issue']; ?>" required disabled="">
-                   </div>
-                   <!-- <div class="form-group">
-                     <label for="id_programmer">Nama Programmer</label>
-                     <input type="text" name="id_programmer" class="form-control" id="id_programmer" value="<?php echo $d['nama_programmer']; ?>" required disabled="">
-                   </div> -->
+                   </div> <?php
+                     } 
+                     ?>
+                   <div class="form-group">
+                    <label for="id_programmer"> Nama Programmer:</label>
+                    <select name="id_programmer" class="form-control" required="">
+                      <option value="">-- Pilih --</option>
+                      <?php
+                      include '../config/koneksi.php';
+                      $id_is = $_GET['id']; 
+                      $query = mysqli_query($koneksi,"select * from user where level = 'Programmer' ");
+                      while ($data=mysqli_fetch_array($query)) { ?>
+                       <option value="<?php echo $data['id']; ?>"><?php echo $data['nama']; ?></option>
+                       <?php
+                     } 
+                     ?>
+                   </select>
+                 </div>
+                  <?php
+               include '../config/koneksi.php';
+               $id_perbaikan = $_GET['id'];               
+               //$data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1 AND s.id_user = ".$_SESSION['id']." AND S.id = '$id'");
+               $data = mysqli_query($koneksi,"SELECT p.*,i.issue as issue, u.nama as nama_programmer FROM tb_perbaikan p 
+                JOIN tb_issue i ON p.nama_aplikasi = i.nama_aplikasi 
+                join user u on p.id_programmer = u.id
+                WHERE p.is_active = 1 AND p.id = '$id_perbaikan'");
+               while($d = mysqli_fetch_array($data)){
+                 ?>
                    <div class="form-group">
                      <label for="perbaikan">Perbaikan</label>
                      <input type="text" name="perbaikan" class="form-control" id="perbaikan" value="<?php echo $d['perbaikan']; ?>">
@@ -98,7 +121,7 @@ if ($_SESSION['username']=='') {
                    </div>
                    <?php } ?> -->
                    <button type="submit" class="btn btn-info">Simpan</button>
-                   <a class="btn btn-danger" href="v_programmer_perbaikan.php">Batal</a>
+                   <a class="btn btn-danger" href="v_head_perbaikan.php">Batal</a>
                  </form>
 
                </div>

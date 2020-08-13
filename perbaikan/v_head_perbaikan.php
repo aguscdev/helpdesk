@@ -26,14 +26,14 @@ if ($_SESSION['username']=='') {
                 <div class="panel panel-default">
                     <div class="panel-heading">Master Perbaikan</div>
                     <div class="panel-body">
-                        <a class="btn btn-success" href="../perbaikan/v_add_programmer_perbaikan.php">Tambah</a><br/><br/>
+                        <a class="btn btn-success" href="../perbaikan/v_add_head_perbaikan.php">Tambah</a><br/><br/>
                         <table id="dtUser" class="table table-bordered">
                             <thead>
                                 <!-- <th>Issue Id</th> -->
                                 <th>No Perbaikan</th>
                                 <th>Nama Aplikasi</th>
                                 <th>Issue</th>
-                                <!-- <th>Nama Programmer</th> -->
+                                <th>Nama Programmer</th>
                                 <th>Perbaikan</th>
                                 <th>Keterangan</th>
                                 <th>Status</th>
@@ -48,7 +48,8 @@ if ($_SESSION['username']=='') {
                                     FROM tb_perbaikan p
                                     JOIN tb_issue i ON p.id_issue = i.id
                                     LEFT JOIN USER pic ON p.id_programmer = pic.id
-                                    WHERE p.is_active = 1 AND p.id_programmer= ".$_SESSION['id']."");
+                                    WHERE p.is_active = 1");
+                                 // AND p.id_programmer= ".$_SESSION['id']."
                                 //$no = 1;
                                 while($d = mysqli_fetch_array($data)) {
                                     ?>
@@ -57,14 +58,14 @@ if ($_SESSION['username']=='') {
                                         <th>TMS - <?php echo $d['no_perbaikan']; ?></th>
                                         <th><?php echo $d['nama_aplikasi']; ?></th>
                                         <th><?php echo $d['v_issue']; ?></th>
-                                        <!-- <th><?php echo $d['nama_programmer']; ?></th> -->
+                                        <th><?php echo $d['nama_programmer']; ?></th>
                                         <th><?php echo $d['perbaikan']; ?></th>
                                         <th><?php echo $d['keterangan']; ?></th>
                                         <!-- <th  class="text-center"><?php echo $d['nama_programmer']; ?></th> -->
                                         <th><?php echo $d['status']; ?></th>
                                         <td>
-                                            <a href="v_edit_programmer_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
-                                            <a href="action_delete_programmer_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="v_edit_head_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
+                                            <a href="action_delete_head_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>
                                             <!-- <a href="action_detail_programmer_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Detail</a> -->
                                         </td>
                                     </tr>

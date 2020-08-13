@@ -28,9 +28,25 @@ if ($_SESSION['username']=='') {
             <div class="panel-body">
             <form method="post" action="action_add_programmer.php">
                 <div class="form-group">
-                    <label for="programmer">Nama Programmer:</label>
-                    <input type="text" name="nama_programmer" class="form-control" id="programmer" required>
+                    <label for="nama">Nama:</label>
+                    <input type="text" name="nama" class="form-control" id="nama" required>
                 </div>
+                <div class="form-group">
+                    <label for="usr">Username:</label>
+                    <input type="text" name="username" class="form-control" id="usrname" required>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="password" class="form-control" id="pwd" required>
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Hak Akses:</label>
+                    <select name="level" class="form-control" id="sel1">
+                        <option>ADMINISTRATOR</option>
+                        <option>PROGRAMMER</option>
+                        <option>CLIENT</option>
+                    </select> 
+                </div> -->
                 <button type="submit" class="btn btn-info">Simpan</button>
                 <a class="btn btn-danger" href="v_programmer.php">Batal</a>
             </form>

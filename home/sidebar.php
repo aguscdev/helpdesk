@@ -3,7 +3,7 @@ if ($_SESSION['username']=='') {
     header('location:../login.php');
 }
 $user = $_SESSION["username"];
-$id = $_SESSION["id"];  
+$id_user = $_SESSION["id"];  
 $level = $_SESSION["level"];
 ?>
 
