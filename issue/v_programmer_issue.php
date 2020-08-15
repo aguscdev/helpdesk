@@ -60,7 +60,18 @@ if ($_SESSION['username']=='') {
                                         <th><?php echo $d['issue']; ?></th>
                                         <th><?php echo $d['keterangan']; ?></th>
                                         <!-- <th  class="text-center"><?php echo $d['nama_programmer']; ?></th> -->
-                                        <th><?php echo $d['status']; ?></th>
+                                        <!-- <th><?php echo $d['status']; ?></th> -->
+                                        <td>
+                                        <?php 
+                                        if($d['status']=="Pending"){
+                                            echo "<div class='label label-warning'>Pending</div>";
+                                        }else if($d['status']=="Proses"){
+                                            echo "<div class='label label-info'>Proses</div>";
+                                        }else if($d['status']=="Done"){
+                                            echo "<div class='label label-success'>Done</div>";
+                                        }
+                                        ?>                          
+                                    </td>  
                                         <!-- <td>
                                             <a href="v_edit_programmer_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
                                             <a href="action_delete_programmer_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>

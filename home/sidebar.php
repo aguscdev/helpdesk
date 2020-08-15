@@ -71,6 +71,17 @@ $level = $_SESSION["level"];
                     </a>
                 </li>
             <?php } ?>
+            <?php if ($level == 'ADMINISTRATOR'){ ?>
+                <li>
+                    <a href="#avseg" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>LAPORAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div id="avseg" class="collapse ">
+                        <ul class="nav">
+                            <li><a href="../laporan/l_head_issue.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Issue</a></li>
+                            <li><a href="../laporan/l_head_perbaikan.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Perbaikan</a></li>
+                        </ul>
+                    </div>
+                </li>
+            <?php } ?>
             <?php if ($level == 'PROGRAMMER'){ ?>
                 <li class="">
                     <a href="../issue/v_programmer_issue.php">
@@ -95,13 +106,13 @@ $level = $_SESSION["level"];
                     </a>
                 </li>
             <?php } ?>
-            <?php if ($level == 'ADMINISTRATOR' || $level == 'PROGRAMMER' || $level == 'CLIENT'){ ?>
+            <?php if ($level == 'CLIENT'){ ?>
                 <li>
                     <a href="#avseg" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>LAPORAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                     <div id="avseg" class="collapse ">
                         <ul class="nav">
-                            <li><a href="../avseg/v_avseg.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Issue</a></li>
-                            <li><a href="../avseg/v_add_monitoring.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Perbaikan</a></li>
+                            <li><a href="../laporan/l_client_issue.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Issue</a></li>
+                            <li><a href="../laporan/l_client_perbaikan.php" class=""><i class="fa fa-list text-aqua"></i> &nbsp Laporan Perbaikan</a></li>
                         </ul>
                     </div>
                 </li>

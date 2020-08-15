@@ -31,6 +31,7 @@ if ($_SESSION['username']=='') {
                             <thead>
                                 <!-- <th>Issue Id</th> -->
                                 <th>No Perbaikan</th>
+                                <th>Nama Client</th>
                                 <th>Nama Aplikasi</th>
                                 <th>Issue</th>
                                 <!-- <th>Nama Programmer</th> -->
@@ -44,10 +45,11 @@ if ($_SESSION['username']=='') {
                                 include '../config/koneksi.php';
                                 // $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1");
                                 // $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1 AND s.id_user = ".$_SESSION['id']."");
-                                $data = mysqli_query($koneksi,"SELECT p.*, i.issue AS v_issue, pic.nama AS nama_programmer
+                                $data = mysqli_query($koneksi,"SELECT p.*, i.issue AS v_issue, pic.nama AS nama_programmer, us.nama as nama_client
                                     FROM tb_perbaikan p
                                     JOIN tb_issue i ON p.id_issue = i.id
                                     LEFT JOIN USER pic ON p.id_programmer = pic.id
+                                    LEFT JOIN USER us ON p.id_user = us.id
                                     WHERE p.is_active = 1 AND p.id_programmer= ".$_SESSION['id']."");
                                 //$no = 1;
                                 while($d = mysqli_fetch_array($data)) {
@@ -55,13 +57,25 @@ if ($_SESSION['username']=='') {
                                     <tr>
                                         <!--  <td height="10"><?php echo $no ++; ?></td> -->
                                         <th>TMS - <?php echo $d['no_perbaikan']; ?></th>
+                                        <th><?php echo $d['nama_client']; ?></th>
                                         <th><?php echo $d['nama_aplikasi']; ?></th>
                                         <th><?php echo $d['v_issue']; ?></th>
                                         <!-- <th><?php echo $d['nama_programmer']; ?></th> -->
                                         <th><?php echo $d['perbaikan']; ?></th>
                                         <th><?php echo $d['keterangan']; ?></th>
                                         <!-- <th  class="text-center"><?php echo $d['nama_programmer']; ?></th> -->
-                                        <th><?php echo $d['status']; ?></th>
+                                        <!-- <th><?php echo $d['status']; ?></th> -->
+                                        <td>
+                                        <?php 
+                                        if($d['status']=="Proses"){
+                                            echo "<div class='label label-warning'>Pending</div>";
+                                        }else if($d['status']=="Proses"){
+                                            echo "<div class='label label-info'>Proses</div>";
+                                        }else if($d['status']=="Done"){
+                                            echo "<div class='label label-success'>Done</div>";
+                                        }
+                                        ?>                          
+                                    </td>  
                                         <td>
                                             <a href="v_edit_programmer_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
                                             <a href="action_delete_programmer_perbaikan.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>

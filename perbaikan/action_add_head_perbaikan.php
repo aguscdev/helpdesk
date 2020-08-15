@@ -6,6 +6,7 @@ include '../config/koneksi.php';
 
 // menangkap data yang di kirim dari form
 //$no_issue = $_POST['no_issue'];
+$id_use = $_POST['id_user'];
 $nama_aplikasi = $_POST['nama_aplikasi'];
 $id_is = $_POST['id_issue'];
 $id_prog = $_POST['id_programmer'];
@@ -27,7 +28,7 @@ $myID = $data['id'] + 1;
 $perbaikanID = date("Ymd");
 
 // menginput data ke database
-$sql = "INSERT INTO tb_perbaikan values($myID,'$perbaikanID$myID','$nama_aplikasi','$id_is','$id_prog','$perbaikan','$keterangan','$status','$myDate','$myDate',$isactive)";
+$sql = "INSERT INTO tb_perbaikan values($myID,'$perbaikanID$myID','$id_use','$nama_aplikasi','$id_is','$id_prog','$perbaikan','$keterangan','$status','$myDate','$myDate',$isactive)";
 // var_dump($sql);
 // die;
 if (mysqli_query($koneksi, $sql))

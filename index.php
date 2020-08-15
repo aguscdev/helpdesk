@@ -49,7 +49,7 @@ session_start ();
 						<input type="submit" name="submit" class="btn btn-primary btn-block" value="LOGIN" />
 					</div>
 				</form>
-				Copyright &copy; 2015 PT. Treemas Solusi Utama
+				<h6>Copyright &copy; 2020 PT.Treemas Solusi Utama</h6>
 			</div>
 			
 		</div>

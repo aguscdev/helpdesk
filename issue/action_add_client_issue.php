@@ -24,7 +24,7 @@ $myID = $data['id'] + 1;
 $issueID = date("Ymd");
 
 // menginput data ke database
-$sql = "INSERT INTO tb_issue values($myID,'$issueID$myID','$userID','$nama_aplikasi','$issue','$keterangan',0,'pending','$myDate','$myDate',$isactive)";
+$sql = "INSERT INTO tb_issue values($myID,'$issueID$myID','$userID','$nama_aplikasi','$issue','$keterangan',0,'Pending','$myDate','$myDate',$isactive)";
 // var_dump($sql);
 // die;
 if (mysqli_query($koneksi, $sql))

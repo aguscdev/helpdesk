@@ -31,7 +31,7 @@ if ($_SESSION['username']=='') {
                             <thead>
                                 <!-- <th>Issue Id</th> -->
                                 <th>No Issue</th>
-                                <th>Nama Client</th>
+                                <!-- <th>Nama Client</th> -->
                                 <th>Nama Aplikasi</th>
                                 <th>Issue</th>
                                 <th>Keterangan</th>
@@ -53,12 +53,23 @@ if ($_SESSION['username']=='') {
                                     <tr>
                                         <!--  <td height="10"><?php echo $no ++; ?></td> -->
                                         <th>TMS - <?php echo $d['no_issue']; ?></th>
-                                        <th><?php echo $d['nama_client']; ?></th>
+                                        <!-- <th><?php echo $d['nama_client']; ?></th> -->
                                         <th><?php echo $d['nama_aplikasi']; ?></th>
                                         <th><?php echo $d['issue']; ?></th>
                                         <th><?php echo $d['keterangan']; ?></th>
                                         <th class="text-center"><?php echo $d['nama_programmer']; ?></th>
-                                        <th><?php echo $d['status']; ?></th>
+                                        <!-- <th><?php echo $d['status']; ?></th> -->
+                                        <td>
+                                        <?php 
+                                        if($d['status']=="Pending"){
+                                            echo "<div class='label label-warning'>Pending</div>";
+                                        }else if($d['status']=="Proses"){
+                                            echo "<div class='label label-info'>Proses</div>";
+                                        }else if($d['status']=="Done"){
+                                            echo "<div class='label label-success'>Done</div>";
+                                        }
+                                        ?>                          
+                                    </td>  
                                         <td>
                                             <a href="v_edit_client_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
                                             <a href="action_delete_client_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>

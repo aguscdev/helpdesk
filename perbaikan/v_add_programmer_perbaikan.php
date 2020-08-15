@@ -40,6 +40,21 @@ if ($_SESSION['username']=='') {
                     <input type="text" name="id_issue" class="form-control" id="id_issue" required>
                   </div> -->
                   <div class="form-group">
+                    <label for="id_user"> Nama Client:</label>
+                    <select name="id_user" class="form-control" required="">
+                      <option value="">-- Pilih --</option>
+                      <?php
+                      include '../config/koneksi.php';
+                      //$id_is = $_GET['id']; 
+                      $query = mysqli_query($koneksi,"select * from user where level = 'client'  ");
+                      while ($data=mysqli_fetch_array($query)) { ?>
+                       <option value="<?php echo $data['id']; ?>"><?php echo $data['nama']; ?></option>
+                       <?php
+                     } 
+                     ?>
+                   </select>
+                 </div>
+                  <div class="form-group">
                     <label for="nama_aplikasi">Nama Aplikasi:</label>
                     <select name="nama_aplikasi" class="form-control" required="">
                       <option value="">-- Pilih --</option>

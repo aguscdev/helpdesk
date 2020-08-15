@@ -31,9 +31,10 @@ if ($_SESSION['username']=='') {
                include '../config/koneksi.php';
                $id_perbaikan = $_GET['id'];               
                //$data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1 AND s.id_user = ".$_SESSION['id']." AND S.id = '$id'");
-               $data = mysqli_query($koneksi,"SELECT p.*,i.issue as issue, u.nama as nama_programmer FROM tb_perbaikan p 
+               $data = mysqli_query($koneksi,"SELECT p.*,i.issue as issue,us.nama as nama_client, u.nama as nama_programmer FROM tb_perbaikan p 
                 JOIN tb_issue i ON p.nama_aplikasi = i.nama_aplikasi 
                 join user u on p.id_programmer = u.id
+                join user us on p.id_user = us.id
                 WHERE p.is_active = 1 AND p.id = '$id_perbaikan'");
                while($d = mysqli_fetch_array($data)){
                  ?>
@@ -50,6 +51,10 @@ if ($_SESSION['username']=='') {
                    <div class="form-group">
                      <label for="no_perbaikan">No Perbaikan</label>
                      <input type="text" name="no_perbaikan" class="form-control" id="no_issue" value="TMS - <?php echo $d['no_perbaikan']; ?>" required disabled="">
+                   </div>
+                   <div class="form-group">
+                     <label for="id_user">Nama Client</label>
+                     <input type="text" name="id_user" class="form-control" id="id_user" value="<?php echo $d['nama_client']; ?>" required disabled="">
                    </div>
                    <div class="form-group">
                      <label for="nama_aplikasi">Nama Aplikasi</label>

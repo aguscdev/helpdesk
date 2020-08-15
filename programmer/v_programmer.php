@@ -26,14 +26,14 @@ if ($_SESSION['username']=='') {
             <div class="panel panel-default">
                 <div class="panel-heading">Master User</div>
                 <div class="panel-body">
-                <a class="btn btn-success" href="../Programmer/v_add_programmer.php">Tambah</a><br/><br/>
+                <!-- <a class="btn btn-success" href="../Programmer/v_add_programmer.php">Tambah</a><br/><br/> -->
                     <table id="dtUser" class="table table-bordered">
                         <thead>
-                            <th>User Id</th>
+                            <th>No</th>
                             <th>Nama Programmer</th>
-                            <th>Username</th>
+                            <!-- <th>Username</th> -->
                             <!-- <th>Hak Akses</th> -->
-                            <th>Aksi</th>
+                            <!-- <th>Aksi</th> -->
                         </thead>
                         <tbody>
                             <?php
@@ -45,12 +45,12 @@ if ($_SESSION['username']=='') {
                             <tr>
                                 <td><?php echo $no ++; ?></td>
                                 <td><?php echo $d['nama']; ?></td>
-                                <td><?php echo $d['username']; ?></td>
+                                <!-- <td><?php echo $d['username']; ?></td> -->
                                 <!-- <td><?php echo $d['level']; ?></td> -->
-                                <td>
+                               <!--  <td>
                                     <a href="v_edit_programmer.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
                                     <a href="action_delete_programmer.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>
-                                </td>
+                                </td> -->
                             </tr>
                             <?php
                                 };
