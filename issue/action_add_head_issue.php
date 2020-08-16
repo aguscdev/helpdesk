@@ -5,8 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 include '../config/koneksi.php';
 
 // menangkap data yang di kirim dari form
-//$no_issue = $_POST['no_issue'];
-//$nama_client = $_POST['nama_client'];
+
 $nama_aplikasi = $_POST['nama_aplikasi'];
 $issue = $_POST['issue'];
 $keterangan = $_POST['keterangan'];

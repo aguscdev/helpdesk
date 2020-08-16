@@ -4,7 +4,7 @@
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
+  header('location:../index.php');
 
   
 }else{

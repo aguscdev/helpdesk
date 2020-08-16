@@ -4,7 +4,7 @@
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
+  header('location:../index.php');
 
   
 }else{
@@ -23,39 +23,39 @@ if ($_SESSION['username']=='') {
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-        <div class="panel panel-default">
+          <div class="panel panel-default">
             <div class="panel-heading">Tambah User</div>
-            <div class="panel-body">
-            <form method="post" action="action_add_user.php">
-                <div class="form-group">
+              <div class="panel-body">
+                <form method="post" action="action_add_user.php">
+                  <div class="form-group">
                     <label for="usr">Nama:</label>
                     <input type="text" name="nama" class="form-control" id="usr" required>
-                </div>
-                <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <label for="usr">Username:</label>
                     <input type="text" name="username" class="form-control" id="usrname" required>
-                </div>
-                <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <label for="pwd">Password:</label>
                     <input type="password" name="password" class="form-control" id="pwd" required>
-                </div>
-                <div class="form-group">
+                  </div>
+                  <div class="form-group">
                     <label for="sel1">Hak Akses:</label>
                     <select name="level" class="form-control" id="sel1">
                         <option>ADMINISTRATOR</option>
                         <option>PROGRAMMER</option>
                         <option>CLIENT</option>
                     </select> 
-                </div>
-                <button type="submit" class="btn btn-info">Simpan</button>
-                <a class="btn btn-danger" href="v_user.php">Batal</a>
-            </form>
+                  </div>
+                  <button type="submit" class="btn btn-info">Simpan</button>
+                  <a class="btn btn-danger" href="v_user.php">Batal</a>
+                </form>
+              </div>
             </div>
+          </section><br>
         </div>
-        </section><br>
       </div>
     </div>
-  </div>
 </body>
 <?php include '../home/footer.php'; ?>
 </html>

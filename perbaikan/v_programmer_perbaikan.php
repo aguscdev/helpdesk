@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
-
-  
+  header('location:../index.php');  
 }else{
-
   $user = $_SESSION["username"];
   $id_user = $_SESSION["id"];  
   $level = $_SESSION["level"];
-
   include '../home/header.php'; 
   ?>
-  <body class="hold-transition skin-blue sidebar-mini">
-      <div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
         <?php include '../home/sidebar.php'; ?>
         <div class="contents">
           <!-- Content Wrapper. Contains page content -->
@@ -43,8 +38,6 @@ if ($_SESSION['username']=='') {
                             <tbody>
                                 <?php
                                 include '../config/koneksi.php';
-                                // $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1");
-                                // $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1 AND s.id_user = ".$_SESSION['id']."");
                                 $data = mysqli_query($koneksi,"SELECT p.*, i.issue AS v_issue, pic.nama AS nama_programmer, us.nama as nama_client
                                     FROM tb_perbaikan p
                                     JOIN tb_issue i ON p.id_issue = i.id
@@ -67,7 +60,7 @@ if ($_SESSION['username']=='') {
                                         <!-- <th><?php echo $d['status']; ?></th> -->
                                         <td>
                                         <?php 
-                                        if($d['status']=="Proses"){
+                                        if($d['status']=="Pending"){
                                             echo "<div class='label label-warning'>Pending</div>";
                                         }else if($d['status']=="Proses"){
                                             echo "<div class='label label-info'>Proses</div>";
@@ -82,17 +75,15 @@ if ($_SESSION['username']=='') {
                                             <!-- <a href="action_detail_programmer_issue.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Detail</a> -->
                                         </td>
                                     </tr>
-                                    <?php
-                                };
-                                ?>
-                            </tbody>
-                        </table>
+                                    <?php }; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </section><br>
+                </section><br>
+            </div>
         </div>
     </div>
-</div>
 </body>
 <?php include '../home/footer.php'; ?>
 <script type="text/javascript">

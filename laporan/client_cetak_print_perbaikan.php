@@ -4,16 +4,12 @@
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
-
-  
+    header('location:../index.php'); 
 }else{
-
-  $user = $_SESSION["username"];
-  $id_user = $_SESSION["id"];   
-  $level = $_SESSION["level"];
-
-   include '../home/header.php'; 
+    $user = $_SESSION["username"];
+    $id_user = $_SESSION["id"];   
+    $level = $_SESSION["level"];
+    include '../home/header.php'; 
 
 ?>
 <body>
@@ -70,9 +66,6 @@ if ($_SESSION['username']=='') {
                         <td><?php echo $d['nama_programmer']; ?></td>
                         <td><?php echo $d['perbaikan']; ?></td>
                         <td><?php echo $d['keterangan']; ?></td>
-                        <!-- <td><?php echo $d['status']; ?></td> -->
-                        <!-- <td><?php echo $d['transaksi_tgl_selesai']; ?></td> -->
-                        <!-- <td><?php echo "Rp. ".number_format($d['transaksi_harga']) ." ,-"; ?></td> -->
                         <td>
                             <?php 
                             if($d['status']=="Pending"){
@@ -99,5 +92,5 @@ if ($_SESSION['username']=='') {
 
 	</body>
 	<?php include '../home/footer.php'; ?>
-	</html>
-	<?php } ?>
+</html>
+<?php } ?>

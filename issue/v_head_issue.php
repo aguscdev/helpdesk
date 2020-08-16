@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
-
-  
+    header('location:../index.php');
 }else{
 
-  $user = $_SESSION["username"];
-  $id_user = $_SESSION["id"];  
-  $level = $_SESSION["level"];
-
-  include '../home/header.php'; 
-  ?>
+    $user = $_SESSION["username"];
+    $id_user = $_SESSION["id"];  
+    $level = $_SESSION["level"];
+    include '../home/header.php'; 
+?>
   <body class="hold-transition skin-blue sidebar-mini">
       <div class="wrapper">
         <?php include '../home/sidebar.php'; ?>
@@ -42,7 +38,6 @@ if ($_SESSION['username']=='') {
                             <tbody>
                                 <?php
                                 include '../config/koneksi.php';
-                                // $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client FROM tb_issue s JOIN user u ON s.id_user = u.id WHERE s.is_active = 1");
                                 $data = mysqli_query($koneksi,"SELECT s.*, u.nama AS nama_client, pic.nama AS nama_programmer
                                     FROM tb_issue s
                                     JOIN USER u ON s.id_user = u.id

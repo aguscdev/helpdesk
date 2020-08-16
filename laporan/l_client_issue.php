@@ -4,17 +4,12 @@
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
-
-  
+    header('location:../index.php'); 
 }else{
-
-  $user = $_SESSION["username"];
-  $id_user = $_SESSION["id"];  
-  $level = $_SESSION["level"];
-
-   include '../home/header.php'; 
-
+    $user = $_SESSION["username"];
+    $id_user = $_SESSION["id"];  
+    $level = $_SESSION["level"];
+    include '../home/header.php'; 
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -84,11 +79,6 @@ if ($_SESSION['username']=='') {
                                     JOIN USER u ON s.id_user = u.id
                                     LEFT JOIN USER pic ON s.id_programmer = pic.id WHERE s.is_active = 1
                                     and s.created_at between ('".$dari."') and ('".$sampai."') AND s.id_user = ".$_SESSION['id']."");
-
-                                // SELECT s.*, u.nama AS nama_client, pic.nama AS nama_programmer FROM tb_issue s
-                                //     JOIN USER u ON s.id_user = u.id
-                                //      LEFT JOIN USER pic ON s.id_programmer = pic.id
-                                //     WHERE s.is_active = 1 AND s.id_user = ".$_SESSION['id']."
                                 $no = 1;
                                 
                                 while($d=mysqli_fetch_array($data)){
@@ -102,9 +92,6 @@ if ($_SESSION['username']=='') {
                                     <td><?php echo $d['issue']; ?></td>
                                     <td><?php echo $d['keterangan']; ?></td>
                                     <td><?php echo $d['nama_programmer']; ?></td>
-                                    <!-- <td><?php echo $d['status']; ?></td> -->
-                                    <!-- <td><?php echo $d['transaksi_tgl_selesai']; ?></td> -->
-                                    <!-- <td><?php echo "Rp. ".number_format($d['transaksi_harga']) ." ,-"; ?></td> -->
                                     <td>
                                         <?php 
                                         if($d['status']=="Pending"){

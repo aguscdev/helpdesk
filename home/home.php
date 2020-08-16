@@ -4,11 +4,9 @@
 session_start();
 if ($_SESSION['username']=='') 
 {
-  header('location:../admin/login.php');
-
+  header('location:../index.php');
 }
   else{
-
   $user = $_SESSION["username"];
   $id_user = $_SESSION["id"];  
   $level = $_SESSION["level"];

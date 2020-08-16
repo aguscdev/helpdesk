@@ -4,15 +4,11 @@
 <?php
 session_start();
 if ($_SESSION['username']=='') {
-  header('location:../admin/login.php');
-
-  
+  header('location:../index.php');  
 }else{
-
   $user = $_SESSION["username"];
   $id_user = $_SESSION["id"];  
   $level = $_SESSION["level"];
-
   include '../home/header.php'; 
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -23,35 +19,23 @@ if ($_SESSION['username']=='') {
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-        <div class="panel panel-default">
+          <div class="panel panel-default">
             <div class="panel-heading">Tambah Programmer</div>
             <div class="panel-body">
-            <form method="post" action="action_add_programmer.php">
+              <form method="post" action="action_add_programmer.php">
                 <div class="form-group">
-                    <label for="nama">Nama:</label>
-                    <input type="text" name="nama" class="form-control" id="nama" required>
+                  <label for="nama">Nama:</label>
+                  <input type="text" name="nama" class="form-control" id="nama" required>
                 </div>
                 <div class="form-group">
-                    <label for="usr">Username:</label>
-                    <input type="text" name="username" class="form-control" id="usrname" required>
+                  <label for="usr">Username:</label>
+                  <input type="text" name="username" class="form-control" id="usrname" required>
                 </div>
-                <!-- <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" name="password" class="form-control" id="pwd" required>
-                </div>
-                <div class="form-group">
-                    <label for="sel1">Hak Akses:</label>
-                    <select name="level" class="form-control" id="sel1">
-                        <option>ADMINISTRATOR</option>
-                        <option>PROGRAMMER</option>
-                        <option>CLIENT</option>
-                    </select> 
-                </div> -->
                 <button type="submit" class="btn btn-info">Simpan</button>
                 <a class="btn btn-danger" href="v_programmer.php">Batal</a>
-            </form>
+              </form>
             </div>
-        </div>
+          </div>
         </section><br>
       </div>
     </div>
@@ -59,6 +43,4 @@ if ($_SESSION['username']=='') {
 </body>
 <?php include '../home/footer.php'; ?>
 </html>
-<?php
-}
-?>
+<?php } ?>

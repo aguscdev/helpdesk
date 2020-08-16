@@ -1,12 +1,11 @@
 <?php 
-if ($_SESSION['username']=='') {
-    header('location:../login.php');
-}
-$user = $_SESSION["username"];
-$id_user = $_SESSION["id"];  
-$level = $_SESSION["level"];
+    if ($_SESSION['username']=='') {
+        header('location:../index.php');
+    }
+    $user = $_SESSION["username"];
+    $id_user = $_SESSION["id"];  
+    $level = $_SESSION["level"];
 ?>
-
 <header class="main-header">
     <!-- Logo -->
     <a href="#" class="logo">
@@ -133,12 +132,12 @@ $level = $_SESSION["level"];
                     </a>
                 </li>
             <?php } ?>
-            <!-- <li class="">
+            <li class="">
                 <a href="../admin/v_ganti_password.php">
                     <i class="fa fa fa-cog text-aqua"></i><span>Ganti Password</span>
                     <span class="pull-right-container"></span>
                 </a>
-            </li> -->
+            </li>
             <li>
                 <a href="../admin/logout.php">
                     <i class="fa fa-power-off text-red"></i><span>Logout</span>
