@@ -38,17 +38,19 @@ CREATE TABLE IF NOT EXISTS `tb_issue` (
 CREATE TABLE IF NOT EXISTS `tb_perbaikan` (
   `id` int(11) NOT NULL,
   `no_perbaikan` varchar(10) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama_aplikasi` varchar(50) NOT NULL,
   `id_issue` int(3) NOT NULL,
   `id_programmer` int(11) NOT NULL,
-  `perbaikan` varchar(50) NOT NULL,
+  `perbaikan` varchar(225) NOT NULL,
   `keterangan` varchar(225) NOT NULL,
   `status` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_issue` (`id_issue`)
+  KEY `id_issue` (`id_issue`),
+  KEY `id_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Pengeluaran data tidak dipilih.
